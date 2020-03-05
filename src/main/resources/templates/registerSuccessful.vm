@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>PAT Registration</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/../../public/css/app.css">
+        
+    </head>
+    <body >
+        <div class="header">
+    		<img src="/../../public/images/logo_k15t.png" width="120px"/>
+		</div>
+        <div class="bannerText">
+            <h1>
+                <label align='center'>Java Meetup Registration</label>
+            </h1>
+        </div>
+       
+	<div class="container">
+            <form class="form-horizontal" role="form" action="rest/registrationSuccess" method="GET" class="form-horizontal" role="form"  method="POST" name="registrationSuccess" >
+			<h2>Registration is completed successfully!</h2>
+			 
+         <ul>
+            <li>First Name : <span> $firstName</span></li>
+            <li>Last Name : <span> $lastName</span></li>
+            <li>Email : <span> $email</span></li>
+            <li>Phone Number : <span> $phoneNumber</span></li>
+            <li>Address : <span> $address</span></li>
+            <li>Pincode : <span> $pincode</span></li>
+            <li>City: <span> $city</span></li>
+            <li>Counrty: <span>$country</span></li>
+         </ul>
+      </div>
+      </form>
+           </div> <!-- ./container -->
+        #parse ("common/footer.vm")
+    </body>
+</html>

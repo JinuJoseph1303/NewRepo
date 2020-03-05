@@ -1,0 +1,160 @@
+<html>
+    <head>
+        <title>PAT Registration</title>
+        <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="public/css/app.css">
+        <script type="text/javascript" src="public/js/src/form_validation.js"></script>
+    </head>
+    <body >
+        #parse ("common/header.vm")
+        <div class="bannerText">
+            <h1>
+                <label align='center'>Java Meetup Registration</label>
+            </h1>
+        </div>
+       
+	<div class="container">
+
+               <form action="rest/registration/register" class="form-horizontal" role="form"  method="POST" name="registration" onsubmit="return validate();">
+                <div class="form-group">
+                    <label for="firstName" id="label1" class="col-sm-3 control-label">FirstName*</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="firstName" placeholder="First Name" class="form-control" name= "firstName" 
+                        autofocus onblur = "validateFirstName()" >
+                         <span style="color:red;font-size: 8pt" id="error_first"></span>
+                    </div>
+                   
+                </div>
+                <div class="form-group">
+                    <label for="lastName" class="col-sm-3 control-label">LastName*</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="lastName" placeholder="Last Name" class="form-control" name= "lastName" 
+                        onblur = "validateLastName()" >
+                        <span style="color:red;font-size: 8pt" id="error_last"></span>
+                    </div>
+                    
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email* </label>
+                    <div class="col-sm-9">
+                        <input type="email" id="email" placeholder="xxx@xx.xxx" class="form-control" name= "email"  
+                        autofocus onblur = "validateEmail()" >
+                        <span style="color:red;font-size: 8pt" id="error_email"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password*</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="password" placeholder="Password" class="form-control" name= "password" 
+                        autofocus onblur = "validatePwd()">
+                    <span style="color:red;font-size: 8pt" id="error_pwd"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword" class="col-sm-3 control-label">Confirm Password*</label>
+                    <div class="col-sm-9">
+                        <input type="password" id="confirmPassword" placeholder="Re-enter Password" class="form-control" name= "confirmPassword"
+                         onblur = "validateConfirmPwd()">
+                          <span style="color: red; font-size: 8pt" id="error_confirmpwd"></span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phoneNumber" class="col-sm-3 control-label">Phone number</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="phoneNumber" placeholder="Phone number" class="form-control" name= "phoneNumber" 
+                        onblur = "validatePhoneNumber()">
+                        <span style="color: red; font-size: 8pt" id="error_phone"></span>  
+                    </div>
+                </div>
+                <div class="form-group">
+                        <label for="address" class="col-sm-3 control-label">Address* </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="address" placeholder="Please enter street name/House number" class="form-control" name= "address" 
+                         onblur = "validateAddress()">
+                        <span style="color: red; font-size: 8pt" id="error_address"></span>  
+                    </div>
+                </div>
+                 <div class="form-group">
+                        <label for="pincode" class="col-sm-3 control-label">Pincode* </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="pincode" placeholder="Please enter pincode" class="form-control" name= "pincode" 
+                         onblur = "validatePincode()" >
+                        <span style="color: red; font-size: 8pt" id="error_pincode"></span>  
+                    </div>
+                    
+                </div>
+                 
+                 <div class="form-group">
+                        <label for="city" class="col-sm-3 control-label">City* </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="city" placeholder="Please enter city" class="form-control" name= "city" 
+                         onblur = "validateCity()">
+                         <span style="color: red; font-size: 8pt" id="error_city"></span> 
+                    </div>
+                    
+                </div>
+           
+              
+                 <div class="form-group">
+                        <label for="country" class="col-sm-3 control-label">Country* </label>
+                    
+                     <div class="col-sm-9">
+                        <select id="country" placeholder="Please select country" class="form-control" name= "country" value ="" onblur = "validateCountry()">
+                         <option value=""></option>
+                           <option value="Afganistan">Afghanistan</option>
+						   <option value="Australia">Australia</option>
+						   <option value="Austria">Austria</option>
+						   <option value="Belgium">Belgium</option>
+						   <option value="Brazil">Brazil</option>
+						   <option value="British Indian Ocean Ter">British Indian Ocean Ter</option>
+						   <option value="Canada">Canada</option>
+						   <option value="China">China</option>
+						   <option value="Denmark">Denmark</option>						   
+						   <option value="Egypt">Egypt</option>						  
+						   <option value="France">France</option>					   
+						   <option value="Germany">Germany</option>						  
+						   <option value="Great Britain">Great Britain</option>
+						   <option value="Greece">Greece</option>
+						   <option value="Hong Kong">Hong Kong</option>
+						   <option value="Hungary">Hungary</option>
+						   <option value="India">India</option>
+						   <option value="Iran">Iran</option>
+						   <option value="Italy">Italy</option>
+						   <option value="Japan">Japan</option>
+						   <option value="Malaysia">Malaysia</option>
+						   <option value="Netherlands">Netherlands (Holland, Europe)</option>
+						   <option value="Norway">Norway</option>
+						   <option value="Poland">Poland</option>
+						   <option value="Portugal">Portugal</option>
+						   <option value="Singapore">Singapore</option>
+						   <option value="Switzerland">Switzerland</option>
+						   <option value="United Arab Erimates">United Arab Emirates</option>
+						   <option value="United States of America">United States of America</option>
+						   <option value="Zimbabwe">Zimbabwe</option>
+                        </select>
+                          <span style="color: red; font-size: 8pt" id="error_country"></span> 
+                       </div>               
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-sm-offset-3">
+                        <span style="font-size: 8pt" class="help-block">*Required fields</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+
+                     	<button type="submit" id="submit" class="btn btn-primary btn-block" value="Submit">Submit</button>
+                    </div>
+                </div>
+           
+         
+			
+            
+        </form>
+       
+           </div> <!-- ./container -->
+        #parse ("common/footer.vm")
+    </body>
+</html>
